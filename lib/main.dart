@@ -9,6 +9,7 @@ class CalculatorApp extends StatelessWidget {
       title: 'Simple Calculator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
       ),
       home: CalculatorHomePage(),
     );
@@ -63,14 +64,21 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
     setState(() {});
   }
 
-  Widget _buildButton(String buttonText) {
+  Widget _buildButton(String buttonText, Color color) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            padding: EdgeInsets.all(20.0),
+          ),
           child: Text(
             buttonText,
-            style: TextStyle(fontSize: 20.0),
+            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
           ),
           onPressed: () => _buttonPressed(buttonText),
         ),
@@ -100,40 +108,40 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  _buildButton("7"),
-                  _buildButton("8"),
-                  _buildButton("9"),
-                  _buildButton("÷"),
+                  _buildButton("7", Colors.blueGrey),
+                  _buildButton("8", Colors.blueGrey),
+                  _buildButton("9", Colors.blueGrey),
+                  _buildButton("÷", const Color.fromARGB(255, 255, 115, 0)),
                 ],
               ),
               Row(
                 children: <Widget>[
-                  _buildButton("4"),
-                  _buildButton("5"),
-                  _buildButton("6"),
-                  _buildButton("×"),
+                  _buildButton("4", Colors.blueGrey),
+                  _buildButton("5", Colors.blueGrey),
+                  _buildButton("6", Colors.blueGrey),
+                  _buildButton("×", const Color.fromARGB(255, 255, 115, 0)),
                 ],
               ),
               Row(
                 children: <Widget>[
-                  _buildButton("1"),
-                  _buildButton("2"),
-                  _buildButton("3"),
-                  _buildButton("-"),
+                  _buildButton("1", Colors.blueGrey),
+                  _buildButton("2", Colors.blueGrey),
+                  _buildButton("3", Colors.blueGrey),
+                  _buildButton("-", const Color.fromARGB(255, 255, 115, 0)),
                 ],
               ),
               Row(
                 children: <Widget>[
-                  _buildButton("."),
-                  _buildButton("0"),
-                  _buildButton("00"),
-                  _buildButton("+"),
+                  _buildButton(".", Colors.blueGrey),
+                  _buildButton("0", Colors.blueGrey),
+                  _buildButton("00", Colors.blueGrey),
+                  _buildButton("+", const Color.fromARGB(255, 255, 115, 0)),
                 ],
               ),
               Row(
                 children: <Widget>[
-                  _buildButton("C"),
-                  _buildButton("="),
+                  _buildButton("C", Colors.redAccent),
+                  _buildButton("=", const Color.fromARGB(255, 3, 126, 66)),
                 ],
               ),
             ],
